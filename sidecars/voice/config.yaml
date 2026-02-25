@@ -1,0 +1,23 @@
+server:
+  port: 10001
+
+vad:
+  model: "silero_vad"
+  threshold: 0.5
+  min_speech_duration_ms: 250
+  min_silence_duration_ms: 100
+
+speaker_id:
+  confidence_high: 0.75
+  confidence_low: 0.60
+  embeddings_path: "../../data/voice/embeddings"
+  fallback_hierarchy: ["child", "teen", "mom", "dad"]
+
+transcription:
+  model: "base"          # base | small | medium
+  device: "cuda"
+  compute_type: "float16"
+  language: null         # null = auto-detect
+
+logging:
+  access_log_path: "../../data/voice/access_logs/access_log.jsonl"
