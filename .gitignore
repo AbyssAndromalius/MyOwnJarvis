@@ -1,0 +1,5 @@
+data/memory/          # ChromaDB — jamais en repo
+data/voice/           # Enrollments voix — données biométriques
+data/learning/        # Pending/approved — données personnelles
+*.env
+research/             # hors repo principal

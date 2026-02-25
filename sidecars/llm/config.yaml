@@ -1,0 +1,38 @@
+server:
+  port: 10002
+
+ollama:
+  base_url: "http://localhost:11434"
+  models:
+    fast: "llama3.2:3b-instruct-q4_0"
+    full: "llama3.1:8b-instruct-q4_0"
+  timeout_seconds: 60
+
+chromadb:
+  path: "../../data/memory"
+
+embeddings:
+  model: "all-MiniLM-L6-v2"
+
+classifier:
+  mode: heuristic   # future: "model"
+  fast_threshold_words: 15
+  full_threshold_words: 30
+
+user_profiles:
+  dad:
+    role: admin
+    model_preference: null
+    system_prompt: "You are a personal assistant. The user is a technical adult. Be detailed, precise, use examples. Respond in the same language as the user."
+  mom:
+    role: admin
+    model_preference: null
+    system_prompt: "You are a personal assistant. The user is an adult. Be concise and practical. Respond in the same language as the user."
+  teen:
+    role: user
+    model_preference: fast
+    system_prompt: "You are a personal assistant. The user is 15 years old. Be casual but respectful. Avoid adult content and financial advice. Respond in the same language as the user."
+  child:
+    role: user
+    model_preference: fast
+    system_prompt: "You are a helpful assistant for a child of 8 years old. Use simple words and short sentences. Be encouraging. Only discuss: homework, stories, games, kid-friendly science. Avoid all violent, adult, or scary content. Respond in the same language as the user."
