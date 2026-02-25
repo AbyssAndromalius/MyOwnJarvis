@@ -19,6 +19,9 @@ classifier:
   fast_threshold_words: 15
   full_threshold_words: 30
 
+memory:
+  chat_top_k: 5     # number of memories injected into the prompt during /chat
+
 user_profiles:
   dad:
     role: admin

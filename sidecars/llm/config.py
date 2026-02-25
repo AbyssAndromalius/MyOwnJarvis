@@ -45,6 +45,10 @@ class ClassifierConfig(BaseModel):
     full_threshold_words: int = 30
 
 
+class MemoryConfig(BaseModel):
+    chat_top_k: int = 5  # memories injected into the prompt per /chat request
+
+
 class UserProfileConfig(BaseModel):
     role: str  # "admin" or "user"
     model_preference: Optional[str] = None  # "fast" | "full" | null
@@ -57,6 +61,7 @@ class AppConfig(BaseModel):
     chromadb: ChromaDBConfig = Field(default_factory=ChromaDBConfig)
     embeddings: EmbeddingsConfig = Field(default_factory=EmbeddingsConfig)
     classifier: ClassifierConfig = Field(default_factory=ClassifierConfig)
+    memory: MemoryConfig = Field(default_factory=MemoryConfig)
     user_profiles: Dict[str, UserProfileConfig] = Field(default_factory=dict)
 
 

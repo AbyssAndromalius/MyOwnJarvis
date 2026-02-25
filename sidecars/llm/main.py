@@ -18,7 +18,6 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from classifier import get_classifier
@@ -140,17 +139,6 @@ class ClassifierExplainResponse(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# Error helper
-# ---------------------------------------------------------------------------
-
-def error_response(status_code: int, message: str, detail: str = "") -> JSONResponse:
-    return JSONResponse(
-        status_code=status_code,
-        content={"error": message, "detail": detail},
-    )
-
-
-# ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
 
@@ -173,7 +161,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
             conversation_history=history,
         )
     except RuntimeError as exc:
-        return error_response(503, "Inference failed", str(exc))  # type: ignore[return-value]
+        raise HTTPException(status_code=503, detail={"error": "Inference failed", "detail": str(exc)}) from exc
 
     return ChatResponse(**result.to_dict())
 

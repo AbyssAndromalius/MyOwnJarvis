@@ -118,8 +118,9 @@ class InferenceEngine:
         classification: ClassificationResult = self._classifier.classify(user_id, message)
         model_name = self._resolve_model(classification.model_key)
 
-        # 2. Retrieve memories
-        memories = self._memory.search(user_id=user_id, query=message, top_k=5)
+        # 2. Retrieve memories — top_k from config, not hardcoded
+        top_k = self._config.memory.chat_top_k
+        memories = self._memory.search(user_id=user_id, query=message, top_k=top_k)
         memory_texts = [m["content"] for m in memories]
 
         # 3. Build prompt
