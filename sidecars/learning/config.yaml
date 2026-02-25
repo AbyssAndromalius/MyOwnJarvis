@@ -1,0 +1,34 @@
+server:
+  port: 10003
+
+llm_sidecar:
+  base_url: "http://localhost:10002"
+  timeout_seconds: 30
+  gate_user_id: "dad"
+
+claude:
+  api_key_env: "ANTHROPIC_API_KEY"
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 256
+  timeout_seconds: 15
+
+gates:
+  gate2a_confidence_threshold: 0.80
+  personal_info_keywords:
+    - "s'appelle"
+    - "prénom"
+    - "habite"
+    - "adresse"
+    - "anniversaire"
+    - "né le"
+    - "travaille chez"
+    - "son numéro"
+    - "notre"
+    - "ma famille"
+
+storage:
+  base_path: "../../data/learning"
+
+notification:
+  enabled: true
+  command: "notify-send"
