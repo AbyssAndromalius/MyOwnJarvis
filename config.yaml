@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  read_timeout_seconds: 30
+  write_timeout_seconds: 60
+
+sidecars:
+  voice_url: "http://localhost:10001"
+  llm_url: "http://localhost:10002"
+  learning_url: "http://localhost:10003"
+  timeout_seconds: 30
+
+valid_user_ids:
+  - dad
+  - mom
+  - teen
+  - child

@@ -1,0 +1,37 @@
+security:
+  allow_unknown_users: false
+  min_confidence_threshold: 0.60
+  log_unknown_attempts: true
+
+users:
+  dad:
+    role: admin
+    age: 45
+    memory_collection: memory_dad
+    system_prompt: "You are a personal assistant. The user is a technical adult. Be detailed, precise, use examples. Respond in the same language as the user."
+    topics_allowed: all
+    research_access: true
+
+  mom:
+    role: admin
+    age: 42
+    memory_collection: memory_mom
+    system_prompt: "You are a personal assistant. The user is an adult. Be concise and practical. Respond in the same language as the user."
+    topics_allowed: all
+
+  teen:
+    role: user
+    age: 15
+    memory_collection: memory_teen
+    model_preference: fast
+    system_prompt: "You are a personal assistant. The user is 15 years old. Be casual but respectful. Avoid adult content and financial advice. Respond in the same language as the user."
+    topics_blocked: [adult_content, financial_advice]
+
+  child:
+    role: user
+    age: 8
+    memory_collection: memory_child
+    model_preference: fast
+    system_prompt: "You are a helpful assistant for a child of 8 years old. Use simple words and short sentences. Be encouraging. Only discuss: homework, stories, games, kid-friendly science. Avoid all violent, adult, or scary content. Respond in the same language as the user."
+    topics_allowed: [homework_help, stories, games, science_for_kids]
+    topics_blocked: [violence, adult_content, scary_content]

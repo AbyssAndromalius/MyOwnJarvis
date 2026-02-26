@@ -1,0 +1,22 @@
+sidecars:
+  voice_url: "http://localhost:10001"
+  llm_url: "http://localhost:10002"
+  learning_url: "http://localhost:10003"
+
+models:
+  fast: "llama3.2:3b-instruct-q4_0"
+  full: "llama3.1:8b-instruct-q4_0"
+  classifier: heuristic
+
+voice:
+  confidence_high: 0.75
+  confidence_low: 0.60
+  fallback_profile: "child"
+
+learning:
+  gate2a_confidence_threshold: 0.80
+  never_send_to_cloud: ["name", "address", "routine", "family"]
+
+research:
+  enabled: false
+  model: "data/models/abliterated/"
