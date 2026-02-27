@@ -1,0 +1,16 @@
+server:
+  host: "127.0.0.1"
+  port: 10090
+
+orchestrator:
+  url: "http://localhost:10080"
+  timeout_seconds: 60
+
+session:
+  max_history: 20
+
+tts:
+  enabled: true
+  voice_preference:
+    - "Microsoft Aria Online (Natural) - English (United States)"
+    - "Microsoft Guy Online (Natural) - English (United States)"
