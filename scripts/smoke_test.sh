@@ -9,7 +9,7 @@ set -u
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-BASE_URL="http://localhost:8080"
+BASE_URL="http://localhost:10080"
 FIXTURES_DIR="$SCRIPT_DIR/test_fixtures"
 SILENCE_WAV="$FIXTURES_DIR/silence.wav"
 

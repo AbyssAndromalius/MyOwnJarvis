@@ -125,7 +125,7 @@ start_python_sidecar() {
 # Fonction pour démarrer le Go Orchestrator
 start_go_orchestrator() {
     local name="Go Orchestrator"
-    local port="8080"
+    local port="10080"
     local log_file="$LOG_DIR/orchestrator.log"
     
     log "Starting $name on :$port..."
